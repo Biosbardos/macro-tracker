@@ -1,0 +1,8 @@
+#Ignore "personal" information files
+/src/macro-tracker.cbp
+/src/macro-tracker.depend
+/src/macro-tracker.layout
+
+
+#Ignore .git folder of the project
+/.git
