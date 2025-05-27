@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['resetdailymarker_0',['resetDailyMarker',['../funciones_8h.html#a009ec3b42c322d27653d2019a0658a91',1,'resetDailyMarker(const string &amp;userFile, Usuario &amp;user):&#160;Functions.cpp'],['../_functions_8cpp.html#a009ec3b42c322d27653d2019a0658a91',1,'resetDailyMarker(const string &amp;userFile, Usuario &amp;user):&#160;Functions.cpp']]]
+  ['pedirindicevalido_0',['pedirIndiceValido',['../funciones_8h.html#a5e97537b80b3057ec5080d3bf35d1454',1,'pedirIndiceValido(int max, const string &amp;mensaje):&#160;Functions.cpp'],['../_functions_8cpp.html#a5e97537b80b3057ec5080d3bf35d1454',1,'pedirIndiceValido(int max, const string &amp;mensaje):&#160;Functions.cpp']]],
+  ['pedirnumero_1',['pedirNumero',['../funciones_8h.html#a23a93420c80934776b60fd24831587a0',1,'pedirNumero(const string &amp;mensaje):&#160;Functions.cpp'],['../_functions_8cpp.html#a23a93420c80934776b60fd24831587a0',1,'pedirNumero(const string &amp;mensaje):&#160;Functions.cpp']]]
 ];

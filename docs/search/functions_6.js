@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pedirindicevalido_0',['pedirIndiceValido',['../funciones_8h.html#a5e97537b80b3057ec5080d3bf35d1454',1,'pedirIndiceValido(int max, const string &amp;mensaje):&#160;Functions.cpp'],['../_functions_8cpp.html#a5e97537b80b3057ec5080d3bf35d1454',1,'pedirIndiceValido(int max, const string &amp;mensaje):&#160;Functions.cpp']]],
-  ['pedirnumero_1',['pedirNumero',['../funciones_8h.html#a23a93420c80934776b60fd24831587a0',1,'pedirNumero(const string &amp;mensaje):&#160;Functions.cpp'],['../_functions_8cpp.html#a23a93420c80934776b60fd24831587a0',1,'pedirNumero(const string &amp;mensaje):&#160;Functions.cpp']]]
+  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
+  ['mostrarrestante_1',['mostrarRestante',['../funciones_8h.html#a4ff56ef811463103b01270400c551d1e',1,'mostrarRestante(double &amp;remainingCal, double &amp;remainingProtein, double &amp;remainingFat, double &amp;remainingCarb):&#160;Functions.cpp'],['../_functions_8cpp.html#a4ff56ef811463103b01270400c551d1e',1,'mostrarRestante(double &amp;remainingCal, double &amp;remainingProtein, double &amp;remainingFat, double &amp;remainingCarb):&#160;Functions.cpp']]]
 ];

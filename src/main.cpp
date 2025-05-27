@@ -1,3 +1,25 @@
+/**
+ * @file main.cpp
+ * @brief Programa que permite al usuario llevar un registro de las calorias que consume y sus macros diarios.
+ *
+ * Este programa permite al usuario:
+ *  -Interactuar con el programa a través de un menú de opciones, los datos se guardan en archivos para persistencia entre ejecuciones.
+ *  -Ingresar sus datos personales (nombre, altura, peso, edad y fórmula de cálculo de calorías).
+ *  -Calcular sus requerimientos calóricos de mantenimiento y sus macros objetivos.
+ *  -Gestionar objetos nutricionales (creación, eliminación y consumo).
+ *  -Reiniciar los marcadores diarios
+ *  -Mostrar las calorías y macros restantes.
+ *
+ * El flujo del programa es el siguiente:
+ *  1. Si es la primera ejecución, solicita los datos del usuario y los guarda en un archivo.
+ *  2. En ejecuciones subsiguientes, carga los datos del usuario desde el archivo y muestra un menú de opciones.
+ *  3. El usuario puede editar sus datos, crear o eliminar objetos nutricionales, consumir objetos y reiniciar los marcadores diarios.
+ *  4. Los datos del usuario y los objetos nutricionales se guardan en archivos para su uso posterior.
+ *
+ * @author Biosbardos
+ * @date 27/05/2025
+ */
+
 #include "funciones.h"
 #include <iostream>
 #include <fstream>
@@ -12,57 +34,42 @@ using namespace std;
 int main() {
     const string userDataFile = "datos.txt";
     const string objDataFile  = "objetos.txt";
-    string nombre;
-    double altura, peso;
-    int edad, formula;
-
-    double maintenanceCal;
-    double remainingCal;
-    double targetProtein, targetFat, targetCarb;
-    double remainingProtein, remainingFat, remainingCarb;
+     Usuario user;
 
     // Si no existe el archivo de datos, es la primera ejecución.
-    Usuario user;
     if (!loadUserData(userDataFile, user))
     {
         // Ingreso de datos (primera vez)
         cout << "Ingrese su nombre (sin tildes ni valores especiales): ";
-        getline(cin, nombre);
-        cout << "Bienvenido, " << nombre << endl;
+        getline(cin, user.nombre);
+        cout << "Bienvenido, " << user.nombre << endl;
 
-        cout << "Ingrese su altura en cm: ";
-        cin >> altura;
+        user.altura = pedirNumero("Ingrese su altura en cm: ");
         cout << "Altura procesada y guardada con exito." << endl;
 
-        cout << "Ingrese su peso en kg: ";
-        cin >> peso;
+        user.peso = pedirNumero("Ingrese su peso en kg: ");
         cout << "Peso procesado y guardado con exito." << endl;
 
-        cout << "Ingrese su edad en anhos: ";
-        cin >> edad;
+        user.edad = static_cast<int>(pedirNumero("Ingrese su edad en anhos: "));
         cout << "Edad procesada y guardada con exito." <<endl;
 
-        cout << "\nSeleccione la formula para calcular las calorias de mantenimiento:" << endl;
-        cout << "1. Formula Hombres: Calorias = (10 * peso en kg) + (6.25 * altura en cm) - (5 * edad) + 5" << endl;
-        cout << "2. Formula Mujeres: Calorias = (10 * peso en kg) + (6.25 * altura en cm) - (5 * edad) - 161" << endl;
-        cout << "Ingrese 1 o 2: ";
-        cin >> formula;
+        user.formula = chooseCalorieFormula();
         cout << "Formula procesada y guardada con exito." << endl;
 
         // Calcular las calorías de mantenimiento
-        maintenanceCal = calculateCalories(peso, altura, edad, formula);
+        user.maintenanceCal = calculateCalories(user.peso, user.altura, user.edad, user.formula);
         cout << "\nSu requerimiento de calorias de mantenimiento es: "
-             << maintenanceCal << " kcal." << endl;
+             << user.maintenanceCal << " kcal." << endl;
 
         // Calcular los targets de macros según porcentajes predeterminados:
         // 25% de proteína (4 cal/g), 20% de grasa (9 cal/g) y 55% de carbohidratos (4 cal/g)
-        calcularMacrosObjetivo(maintenanceCal, targetProtein, targetFat, targetCarb);
+        calcularMacrosObjetivo(user.maintenanceCal, user.targetProtein, user.targetFat, user.targetCarb);
 
         // Inicialmente, los marcadores diarios son iguales a los targets
-        remainingCal      = maintenanceCal;
-        remainingProtein  = targetProtein;
-        remainingFat      = targetFat;
-        remainingCarb     = targetCarb;
+        user.remainingCal      = user.maintenanceCal;
+        user.remainingProtein  = user.targetProtein;
+        user.remainingFat      = user.targetFat;
+        user.remainingCarb     = user.targetCarb;
 
         // Guardar la información del usuario
         saveUserData(userDataFile, user);
@@ -72,7 +79,7 @@ int main() {
     }
     else {
         // Ejecuciones subsiguientes: se cargan los datos y se le da la bienvenida al usuario.
-        cout << "Bienvenido de nuevo, " << nombre << "!" << endl;
+        cout << "Bienvenido de nuevo, " << user.nombre << "!" << endl;
 
         int opcion;
         do {
@@ -104,7 +111,7 @@ int main() {
                     resetDailyMarker(userDataFile, user);
                     break;
                 case 5:
-                    mostrarRestante(remainingCal, remainingProtein, remainingFat, remainingCarb);
+                    mostrarRestante(user.remainingCal, user.remainingProtein, user.remainingFat, user.remainingCarb);
                     break;
                 case 6:
                     cout << "Saliendo del programa. Hasta luego!" << endl;

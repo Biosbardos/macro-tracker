@@ -7,6 +7,8 @@ var _functions_8cpp =
     [ "consumeObjects", "_functions_8cpp.html#a278c006ffeb16295abddb7f0de04971a", null ],
     [ "deleteObject", "_functions_8cpp.html#a72d71ff8787081df05e628e731503432", null ],
     [ "editUserData", "_functions_8cpp.html#a0465eb4ccdd63667ed9df8d697ce23be", null ],
+    [ "imprimirObjetos", "_functions_8cpp.html#ae5dc313379d4e76cfac19f15c611626d", null ],
+    [ "imprimirValor", "_functions_8cpp.html#a9b0f70a962fe60e0248d77e84487ab21", null ],
     [ "loadObjects", "_functions_8cpp.html#a7c9473fbd9c9ad18c1031d2b7d8120a7", null ],
     [ "loadUserData", "_functions_8cpp.html#ae9eccb968292888e0c32f7f795cddf6f", null ],
     [ "mostrarRestante", "_functions_8cpp.html#a4ff56ef811463103b01270400c551d1e", null ],

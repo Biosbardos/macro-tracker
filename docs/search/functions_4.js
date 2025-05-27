@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['loadobjects_0',['loadObjects',['../funciones_8h.html#a7c9473fbd9c9ad18c1031d2b7d8120a7',1,'loadObjects(const string &amp;filename):&#160;Functions.cpp'],['../_functions_8cpp.html#a7c9473fbd9c9ad18c1031d2b7d8120a7',1,'loadObjects(const string &amp;filename):&#160;Functions.cpp']]],
-  ['loaduserdata_1',['loadUserData',['../funciones_8h.html#ae9eccb968292888e0c32f7f795cddf6f',1,'loadUserData(const string &amp;filename, Usuario &amp;user):&#160;Functions.cpp'],['../_functions_8cpp.html#ae9eccb968292888e0c32f7f795cddf6f',1,'loadUserData(const string &amp;filename, Usuario &amp;user):&#160;Functions.cpp']]]
+  ['imprimirobjetos_0',['imprimirObjetos',['../funciones_8h.html#ae5dc313379d4e76cfac19f15c611626d',1,'imprimirObjetos(const vector&lt; Objeto &gt; &amp;objetos):&#160;Functions.cpp'],['../_functions_8cpp.html#ae5dc313379d4e76cfac19f15c611626d',1,'imprimirObjetos(const vector&lt; Objeto &gt; &amp;objetos):&#160;Functions.cpp']]],
+  ['imprimirvalor_1',['imprimirValor',['../funciones_8h.html#a9b0f70a962fe60e0248d77e84487ab21',1,'imprimirValor(const string &amp;etiqueta, double &amp;valor, const string &amp;unidad):&#160;Functions.cpp'],['../_functions_8cpp.html#a9b0f70a962fe60e0248d77e84487ab21',1,'imprimirValor(const string &amp;etiqueta, double &amp;valor, const string &amp;unidad):&#160;Functions.cpp']]]
 ];

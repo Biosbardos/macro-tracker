@@ -169,6 +169,15 @@ void deleteObject(const string &filename);
 void consumeObjects(const string &objFile, const string &userFile, Usuario &user);
 
 /**
+ * @brief Imprime un valor con su etiqueta y unidad, usando colores para indicar si es positivo o negativo.
+ * 
+ * @param etiqueta Etiqueta descriptiva del valor.
+ * @param valor Valor a imprimir.
+ * @param unidad Unidad del valor (ej. "Kcal", "g").
+ */
+void imprimirValor(const string &etiqueta, double &valor, const string &unidad);
+
+/**
  * @brief Muestra por pantalla las calorías y macros restantes del día.
  *
  * Imprime en consola el estado actual de las calorías, proteína, grasa y carbohidratos restantes,
@@ -210,5 +219,12 @@ double pedirNumero(const string& mensaje);
  * @return int Índice válido introducido por el usuario.
  */
 int pedirIndiceValido(int max, const string& mensaje);
+
+/**
+ * @brief Imprime los objetos nutricionales en consola.
+ * 
+ * @param objetos Vector de objetos nutricionales a imprimir.
+ */
+void imprimirObjetos(const vector<Objeto> &objetos);
 
 #endif // FUNCIONES_H_INCLUDED

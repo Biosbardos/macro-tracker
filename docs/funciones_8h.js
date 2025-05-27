@@ -9,6 +9,8 @@ var funciones_8h =
     [ "consumeObjects", "funciones_8h.html#a278c006ffeb16295abddb7f0de04971a", null ],
     [ "deleteObject", "funciones_8h.html#a72d71ff8787081df05e628e731503432", null ],
     [ "editUserData", "funciones_8h.html#a0465eb4ccdd63667ed9df8d697ce23be", null ],
+    [ "imprimirObjetos", "funciones_8h.html#ae5dc313379d4e76cfac19f15c611626d", null ],
+    [ "imprimirValor", "funciones_8h.html#a9b0f70a962fe60e0248d77e84487ab21", null ],
     [ "loadObjects", "funciones_8h.html#a7c9473fbd9c9ad18c1031d2b7d8120a7", null ],
     [ "loadUserData", "funciones_8h.html#ae9eccb968292888e0c32f7f795cddf6f", null ],
     [ "mostrarRestante", "funciones_8h.html#a4ff56ef811463103b01270400c551d1e", null ],

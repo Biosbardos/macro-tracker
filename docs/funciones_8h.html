@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>macro-tracker: Referencia del archivo funciones.h</title>
+<title>macro-tracker: Referencia del archivo C:/Users/hgons/OneDrive/Escritorio/Ejercicios de Programación/macro-tracker/src/funciones.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">macro-tracker<span id="projectnumber">&#160;v1.0.1</span>
+   <div id="projectname">macro-tracker<span id="projectnumber">&#160;v1.0.3</span>
    </div>
    <div id="projectbrief">Simple Macro Tracker made (in C++) because all the apps have tons of ads and limited custom foods, so you need to enter all the macros every time you eat anything and that is a pain in the ass.</div>
   </td>
@@ -132,6 +132,8 @@ Funciones</h2></td></tr>
 <tr class="memdesc:a72d71ff8787081df05e628e731503432"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un objeto nutricional existente. Se muestran los objetos actuales y se pide seleccionar el objeto a eliminar.  <br /></td></tr>
 <tr class="memitem:a278c006ffeb16295abddb7f0de04971a" id="r_a278c006ffeb16295abddb7f0de04971a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a278c006ffeb16295abddb7f0de04971a">consumeObjects</a> (const string &amp;objFile, const string &amp;userFile, <a class="el" href="struct_usuario.html">Usuario</a> &amp;user)</td></tr>
 <tr class="memdesc:a278c006ffeb16295abddb7f0de04971a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite "consumir" objetos nutricionales. Se muestran los objetos existentes y el usuario puede seleccionar (repetidamente) cuáles consumir hasta que ingrese "f". Se actualizan las calorías y macros restantes y se informa al usuario.  <br /></td></tr>
+<tr class="memitem:a9b0f70a962fe60e0248d77e84487ab21" id="r_a9b0f70a962fe60e0248d77e84487ab21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b0f70a962fe60e0248d77e84487ab21">imprimirValor</a> (const string &amp;etiqueta, double &amp;valor, const string &amp;unidad)</td></tr>
+<tr class="memdesc:a9b0f70a962fe60e0248d77e84487ab21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime un valor con su etiqueta y unidad, usando colores para indicar si es positivo o negativo.  <br /></td></tr>
 <tr class="memitem:a4ff56ef811463103b01270400c551d1e" id="r_a4ff56ef811463103b01270400c551d1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ff56ef811463103b01270400c551d1e">mostrarRestante</a> (double &amp;remainingCal, double &amp;remainingProtein, double &amp;remainingFat, double &amp;remainingCarb)</td></tr>
 <tr class="memdesc:a4ff56ef811463103b01270400c551d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Muestra por pantalla las calorías y macros restantes del día.  <br /></td></tr>
 <tr class="memitem:a4076d87039135b916986acde42aaf5f5" id="r_a4076d87039135b916986acde42aaf5f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4076d87039135b916986acde42aaf5f5">calcularMacrosObjetivo</a> (double maintenanceCal, double &amp;targetProtein, double &amp;targetFat, double &amp;targetCarb)</td></tr>
@@ -140,6 +142,8 @@ Funciones</h2></td></tr>
 <tr class="memdesc:a23a93420c80934776b60fd24831587a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solicita un número al usuario y valida la entrada.  <br /></td></tr>
 <tr class="memitem:a5e97537b80b3057ec5080d3bf35d1454" id="r_a5e97537b80b3057ec5080d3bf35d1454"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e97537b80b3057ec5080d3bf35d1454">pedirIndiceValido</a> (int max, const string &amp;mensaje)</td></tr>
 <tr class="memdesc:a5e97537b80b3057ec5080d3bf35d1454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solicita un índice válido al usuario, asegurándose de que esté dentro del rango [0, max).  <br /></td></tr>
+<tr class="memitem:ae5dc313379d4e76cfac19f15c611626d" id="r_ae5dc313379d4e76cfac19f15c611626d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5dc313379d4e76cfac19f15c611626d">imprimirObjetos</a> (const vector&lt; <a class="el" href="struct_objeto.html">Objeto</a> &gt; &amp;objetos)</td></tr>
+<tr class="memdesc:ae5dc313379d4e76cfac19f15c611626d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime los objetos nutricionales en consola.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones</h2>
 <a id="ace18e9fcf0f9821cf87658cbd07a4be1" name="ace18e9fcf0f9821cf87658cbd07a4be1"></a>
@@ -165,7 +169,7 @@ Funciones</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00216">216</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00212">212</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
 
 </div>
 </div>
@@ -209,7 +213,7 @@ Funciones</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00370">370</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00369">369</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
 
 </div>
 </div>
@@ -254,7 +258,7 @@ Funciones</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Devuelve</dt><dd>Calorías calculadas. </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00133">133</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00129">129</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
 
 </div>
 </div>
@@ -280,7 +284,7 @@ Funciones</h2></td></tr>
 </ol>
 <dl class="section return"><dt>Devuelve</dt><dd>La opción elegida (1 o 2). </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00123">123</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00116">116</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
 
 </div>
 </div>
@@ -318,7 +322,7 @@ Funciones</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00282">282</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00271">271</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
 
 </div>
 </div>
@@ -345,7 +349,7 @@ Funciones</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00250">250</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00246">246</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
 
 </div>
 </div>
@@ -386,6 +390,71 @@ Funciones</h2></td></tr>
 
 </div>
 </div>
+<a id="ae5dc313379d4e76cfac19f15c611626d" name="ae5dc313379d4e76cfac19f15c611626d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5dc313379d4e76cfac19f15c611626d">&#9670;&#160;</a></span>imprimirObjetos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void imprimirObjetos </td>
+          <td>(</td>
+          <td class="paramtype">const vector&lt; <a class="el" href="struct_objeto.html">Objeto</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>objetos</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime los objetos nutricionales en consola. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objetos</td><td>Vector de objetos nutricionales a imprimir. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00407">407</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9b0f70a962fe60e0248d77e84487ab21" name="a9b0f70a962fe60e0248d77e84487ab21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b0f70a962fe60e0248d77e84487ab21">&#9670;&#160;</a></span>imprimirValor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void imprimirValor </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;</td>          <td class="paramname"><span class="paramname"><em>etiqueta</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>valor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;</td>          <td class="paramname"><span class="paramname"><em>unidad</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime un valor con su etiqueta y unidad, usando colores para indicar si es positivo o negativo. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">etiqueta</td><td>Etiqueta descriptiva del valor. </td></tr>
+    <tr><td class="paramname">valor</td><td>Valor a imprimir. </td></tr>
+    <tr><td class="paramname">unidad</td><td>Unidad del valor (ej. "Kcal", "g"). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00347">347</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a7c9473fbd9c9ad18c1031d2b7d8120a7" name="a7c9473fbd9c9ad18c1031d2b7d8120a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7c9473fbd9c9ad18c1031d2b7d8120a7">&#9670;&#160;</a></span>loadObjects()</h2>
 
@@ -411,7 +480,7 @@ Funciones</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Devuelve</dt><dd>Vector de objetos leídos. </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00160">160</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00156">156</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
 
 </div>
 </div>
@@ -504,7 +573,7 @@ Funciones</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00363">363</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00355">355</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
 
 </div>
 </div>
@@ -537,7 +606,7 @@ Funciones</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Devuelve</dt><dd>int Índice válido introducido por el usuario. </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00392">392</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00391">391</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
 
 </div>
 </div>
@@ -565,7 +634,7 @@ Funciones</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Devuelve</dt><dd>double Valor introducido. </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00376">376</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00375">375</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
 
 </div>
 </div>
@@ -597,7 +666,7 @@ Funciones</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00148">148</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00144">144</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
 
 </div>
 </div>
@@ -629,7 +698,7 @@ Funciones</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00198">198</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="_functions_8cpp_source.html#l00194">194</a> del archivo <a class="el" href="_functions_8cpp_source.html">Functions.cpp</a>.</p>
 
 </div>
 </div>
@@ -680,7 +749,7 @@ Funciones</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="funciones_8h.html">funciones.h</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="funciones_8h.html">funciones.h</a></li>
     <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

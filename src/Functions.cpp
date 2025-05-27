@@ -87,14 +87,7 @@ void editUserData(Usuario &user, const string &filename) {
     user.edad = static_cast<int>(pedirNumero("Ingrese su nueva edad en anhos: "));
     cout << "Edad procesada y guardada con exito." << endl;
 
-    cout << "\nSeleccione la formula para calcular las calorias de mantenimiento:" << endl;
-    cout << "1. Formula Hombres: Calorias = (10 * peso en kg) + (6.25 * altura en cm) - (5 * edad) + 5" << endl;
-    cout << "2. Formula Mujeres: Calorias = (10 * peso en kg) + (6.25 * altura en cm) - (5 * edad) - 161" << endl;
-      do {
-        cout << "Ingrese 1 o 2: ";
-        cin >> user.formula;
-        cin.ignore(10000, '\n');
-    } while (user.formula != 1 && user.formula != 2);
+    user.formula = chooseCalorieFormula();
     cout << "Formula procesada y guardada con exito." << endl;;
 
     // Calcular lo consumido antes del cambio
@@ -125,8 +118,11 @@ int chooseCalorieFormula() {
     cout << "\nSeleccione la formula para calcular las calorias de mantenimiento:" << endl;
     cout << "1. Formula Hombres: Calorias = (10 * peso en kg) + (6.25 * altura en cm) - (5 * edad) + 5" << endl;
     cout << "2. Formula Mujeres: Calorias = (10 * peso en kg) + (6.25 * altura en cm) - (5 * edad) - 161" << endl;
-    cout << "Ingrese 1 o 2: ";
-    cin >> opcion;
+    do {
+        cout << "Ingrese 1 o 2: ";
+        cin >> opcion;
+        cin.ignore(10000, '\n');
+    } while (opcion != 1 && opcion != 2);
     return opcion;
 }
 
@@ -256,14 +252,7 @@ void deleteObject(const string &filename) {
 
     // Mostrar los objetos con su índice
     cout << "Objetos actuales:" << endl;
-    for (size_t i = 0; i < objetos.size(); i++) {
-        cout << i << ". " << objetos[i].nombre
-             << " (Proteina: " << objetos[i].proteina
-             << " g, Carbohidratos: " << objetos[i].carbohidratos
-             << " g, Grasa: " << objetos[i].grasa
-             << " g, Fibra: " << objetos[i].fibra
-             << " g, Calorias: " << objetos[i].calorias << " Kcal)" << endl;
-    }
+    imprimirObjetos(objetos);
 
     int indice;
     cout << "Ingrese el numero del objeto que desea eliminar: ";
@@ -293,13 +282,7 @@ void consumeObjects(const string &objFile, const string &userFile, Usuario &user
     double totalConsumedFibra = 0;
 
     cout << "\nListado de objetos nutricionales:" << endl;
-    for (size_t i = 0; i < objetos.size(); i++) {
-        cout << i << ". " << objetos[i].nombre
-             << " (Proteina: " << objetos[i].proteina << " g, Carbohidratos: "
-             << objetos[i].carbohidratos << " g, Grasa: " << objetos[i].grasa
-             << " g, Fibra: " << objetos[i].fibra
-             << " g, Calorias: " << objetos[i].calorias << " Kcal)" << endl;
-    }
+    imprimirObjetos(objetos);
 
     cout << "Ingrese el numero del objeto que desea consumir o 'f' para finalizar: ";
     string input;
@@ -360,11 +343,27 @@ void consumeObjects(const string &objFile, const string &userFile, Usuario &user
     saveUserData(userFile, user);
 }
 
+// Función auxiliar para imprimir el valor con color
+void imprimirValor(const string &etiqueta, double &valor, const string &unidad) {
+    // Si el valor es negativo, se imprime en rojo; si es mayor o igual a cero, en verde.
+    if (valor < 0)
+        cout << etiqueta << ": " << "\033[31m" << valor << " " << unidad << "\033[0m" << endl;
+    else
+        cout << etiqueta << ": " << "\033[32m" << valor << " " << unidad << "\033[0m" << endl;
+}
+
 void mostrarRestante(double &remainingCal, double &remainingProtein, double &remainingFat, double &remainingCarb) {
-    cout << "Calorias restantes: " << remainingCal << " Kcal" << endl;
-    cout << "Proteina restante: " << remainingProtein << " g" << endl;
-    cout << "Grasa restante: " << remainingFat << " g" << endl;
-    cout << "Carbohidratos restantes: " << remainingCarb << " g" << endl;
+    if (remainingCal < 0 || remainingProtein < 0 || remainingFat < 0 || remainingCarb < 0) {
+        cout << "\n\033[31mAtencion: Has excedido tus limites diarios!\033[0m" << endl;
+    } else {
+        cout << "\n\033[32mMarcador diario:\033[0m" << endl;
+    }
+
+    // Se imprime cada información con el color correspondiente
+    imprimirValor("Calorias restantes", remainingCal, "Kcal");
+    imprimirValor("Proteina restante", remainingProtein, "g");
+    imprimirValor("Grasa restante", remainingFat, "g");
+    imprimirValor("Carbohidratos restantes", remainingCarb, "g");
 }
 
 void calcularMacrosObjetivo(double maintenanceCal, double &targetProtein, double &targetFat, double &targetCarb) {
@@ -402,5 +401,16 @@ int pedirIndiceValido(int max, const string& mensaje) {
             cin.ignore(10000, '\n');
             return indice;
         }
+    }
+}
+
+void imprimirObjetos(const vector<Objeto> &objetos) {
+    for (size_t i = 0; i < objetos.size(); i++) {
+        cout << i << ". " << objetos[i].nombre
+             << " (Proteina: " << objetos[i].proteina
+             << " g, Carbohidratos: " << objetos[i].carbohidratos
+             << " g, Grasa: " << objetos[i].grasa
+             << " g, Fibra: " << objetos[i].fibra
+             << " g, Calorias: " << objetos[i].calorias << " Kcal)" << endl;
     }
 }
