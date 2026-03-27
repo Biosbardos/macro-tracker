@@ -2,13 +2,14 @@
 #define FUNCIONES_H_INCLUDED
 
 #include <iostream>
-#include <fstream>
-#include <sstream>
 #include <vector>
-#include <cstdlib>
 #include <string>
 
 using namespace std;
+
+const string VERSION = "v1.1.0";
+const int MAX_INTEGER = 2147483647;
+
 /* ================= Prototipos de funciones ================= */
 /**
  * @brief Estructura que define un objeto nutricional.
@@ -170,12 +171,12 @@ void consumeObjects(const string &objFile, const string &userFile, Usuario &user
 
 /**
  * @brief Imprime un valor con su etiqueta y unidad, usando colores para indicar si es positivo o negativo.
- * 
+ *
  * @param etiqueta Etiqueta descriptiva del valor.
  * @param valor Valor a imprimir.
  * @param unidad Unidad del valor (ej. "Kcal", "g").
  */
-void imprimirValor(const string &etiqueta, double &valor, const string &unidad);
+void printValue(const string &etiqueta, double &valor, const string &unidad);
 
 /**
  * @brief Muestra por pantalla las calorías y macros restantes del día.
@@ -188,7 +189,7 @@ void imprimirValor(const string &etiqueta, double &valor, const string &unidad);
  * @param remainingFat Gramos de grasa restantes.
  * @param remainingCarb Gramos de carbohidratos restantes.
  */
-void mostrarRestante(double &remainingCal,
+void printRemaining(double &remainingCal,
                     double &remainingProtein,
                     double &remainingFat,
                     double &remainingCarb);
@@ -201,7 +202,7 @@ void mostrarRestante(double &remainingCal,
  * @param targetFat Referencia donde se guarda la grasa objetivo.
  * @param targetCarb Referencia donde se guarda el carbohidrato objetivo.
  */
-void calcularMacrosObjetivo(double maintenanceCal, double &targetProtein, double &targetFat, double &targetCarb);
+void calculateGoalMacros(double maintenanceCal, double &targetProtein, double &targetFat, double &targetCarb);
 
 /**
  * @brief Solicita un número al usuario y valida la entrada.
@@ -209,7 +210,7 @@ void calcularMacrosObjetivo(double maintenanceCal, double &targetProtein, double
  * @param mensaje Mensaje a mostrar.
  * @return double Valor introducido.
  */
-double pedirNumero(const string& mensaje);
+double getNumber(const string& mensaje);
 
 /**
  * @brief Solicita un índice válido al usuario, asegurándose de que esté dentro del rango [0, max).
@@ -218,13 +219,37 @@ double pedirNumero(const string& mensaje);
  * @param mensaje Mensaje a mostrar al usuario.
  * @return int Índice válido introducido por el usuario.
  */
-int pedirIndiceValido(int max, const string& mensaje);
+int getValidIndex(int max, const string& mensaje);
 
 /**
  * @brief Imprime los objetos nutricionales en consola.
- * 
+ *
  * @param objetos Vector de objetos nutricionales a imprimir.
  */
-void imprimirObjetos(const vector<Objeto> &objetos);
+void printObjects(const vector<Objeto> &objetos);
+
+/**
+ * @brief Imprime la cabecera que se mostrará al iniciar la apliación como característica de IU. Mostrando la fecha y hora, el nombre de la aplicación, la versión actual y el copyright.
+ *
+ * @param VERSION String constante que determina la versión actual.
+ */
+void printHeader(const string &VERSION);
+
+/**
+ * @brief Limpia la pantalla de la terminal con código ANSI.
+ */
+void clearTerminal();
+
+/**
+ * @brief Muestra datos informativos del proyecto.
+ */
+void printProjectInfo(const string &VERSION);
+
+/**
+ * @brief Muestra un menú para manejar los objetos nutricionales: crear, eliminar.
+ *
+ * @param filename String con el nombre del archivo donde se almacenan los objetos nutricionales.
+ */
+void manageObject(const string &filename);
 
 #endif // FUNCIONES_H_INCLUDED

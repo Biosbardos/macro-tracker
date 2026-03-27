@@ -1,8 +1,17 @@
-#Ignore "personal" information files
+#Ignore sensible information files
 /src/macro-tracker.cbp
 /src/macro-tracker.depend
 /src/macro-tracker.layout
 
+#Ignore vscode configuration files
+/.vscode
+
+#Ignore unfinished work files
+/src/obj/Debug/Refactorizacion.o
+/src/Refactorizacion.cpp
+/src/Functions_NEW.cpp
+/music
+/languages
 
 #Ignore .git folder of the project
 /.git

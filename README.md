@@ -2,7 +2,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/Biosbardos/macro-tracker?style=social)](https://github.com/Biosbardos/macro-tracker/stargazers)
 [![License: GNU GENERAL PUBLIC LICENSE Version 3](https://img.shields.io/badge/License-GNU_GPL_v3-green.svg)](LICENSE)
-![Macro Tracker Version](https://img.shields.io/badge/versi%C3%B3n-1.0.6-blue)
+![Macro Tracker Version](https://img.shields.io/badge/versi%C3%B3n-1.1.0-blue)
 
 Macro Tracker is a simple and powerful tool built in C++ to make tracking calories and macronutrients effortless. Lightweight, fully customizable, and 100% free—designed to be your perfect everyday companion for nutrition tracking. 
 
