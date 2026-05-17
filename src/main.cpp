@@ -21,6 +21,7 @@
  */
 
 #include "funciones.h"
+#include "audio.h"
 #include <iostream>
 #include <string>
 #include <thread>
@@ -34,7 +35,7 @@ int main() {
     const string objDataFile  = "objetos.txt";
     Usuario user;
 
-    printHeader(VERSION);
+    printHeader();
 
     // Si no existe el archivo de datos, es la primera ejecución.
     if (!loadUserData(userDataFile, user)){
@@ -57,13 +58,29 @@ int main() {
         cout << "\nFormula procesada y guardada con exito. \n\n";
 
         // Calcular las calorías de mantenimiento
-        user.maintenanceCal = calculateCalories(user.peso, user.altura, user.edad, user.formula);
+        user.maintenanceCal = calculateCalories(user.peso, user.altura, user.edad, user.formula); //Se calcula aquí porque es necesario para calculateGoalMacros()
+
+        // Calcular los targets de macros según porcentajes predeterminados que se pueden modificar:
+        // 25% de proteína (4 cal/g), 20% de grasa (9 cal/g) y 55% de carbohidratos (4 cal/g)
+        cout << "Ingrese a continuacion el porcentaje de macros que desea para su dieta (sin poner el % y que sume 100 por favor): \n\n";
+        user.proteinaPorcentaje = static_cast<int>(getNumber("Porcentaje de proteinas:  "));
+        user.carbsPorcentaje = static_cast<int>(getNumber("Porcentaje de carbohidratos: "));
+        user.grasaPorcentaje = static_cast<int>(getNumber("Porcentaje de grasas: "));
+
+        // Comprobar que el usuario no es deficiente mental
+        if (user.proteinaPorcentaje + user.carbsPorcentaje + user.grasaPorcentaje == 100){
+            cout << "\nPorcentajes de macros procesados y guardados con exito. \n\n";
+        } else{
+            cout << "\nEspabila eso no suma 100 jefe, te quedas con los predeterminados (se pueden editar despues)\n\n";
+            user.proteinaPorcentaje = 25;
+            user.carbsPorcentaje= 55;
+            user.grasaPorcentaje= 20;
+        }
+
+        calculateGoalMacros(user.proteinaPorcentaje, user.carbsPorcentaje, user.grasaPorcentaje, user.maintenanceCal, user.targetProtein, user.targetFat, user.targetCarb);
+
         cout << "Su requerimiento de calorias de mantenimiento es: "
              << user.maintenanceCal << " kcal. \n";
-
-        // Calcular los targets de macros según porcentajes predeterminados:
-        // 25% de proteína (4 cal/g), 20% de grasa (9 cal/g) y 55% de carbohidratos (4 cal/g)
-        calculateGoalMacros(user.maintenanceCal, user.targetProtein, user.targetFat, user.targetCarb);
 
         // Inicialmente, los marcadores diarios son iguales a los targets
         user.remainingCal      = user.maintenanceCal;
@@ -74,7 +91,7 @@ int main() {
         // Guardar la información del usuario
         saveUserData(userDataFile, user);
 
-        this_thread::sleep_for(chrono::milliseconds(5000)); // Cinco segundos para que dé tiempo a ver los últimos couts
+        this_thread::sleep_for(chrono::milliseconds(8000)); // Ocho segundos para que dé tiempo a ver los últimos couts
         return 0;// Terminar el programa tras la primera ejecución
 
     } else { // Ejecuciones subsiguientes: se cargan los datos y se le da la bienvenida al usuario.
@@ -86,7 +103,7 @@ int main() {
         do {
             cout << "Menu de opciones: \n";
             cout << "0. Mostrar informacion del proyecto \n";
-            cout << "1. Editar datos de usuario (nombre, altura, peso, edad, formula) \n";
+            cout << "1. Editar datos de usuario \n";
             cout << "2. Administrar objetos nutricionales \n"; // Crear o eliminar
             cout << "3. Consumir objetos nutricionales \n";
             cout << "4. Mostrar calorias y macros restantes \n";
@@ -97,7 +114,7 @@ int main() {
 
             if (opcion.empty()){
                 clearTerminal();
-                printHeader(VERSION);
+                printHeader();
                 continue;
             }
 
@@ -110,27 +127,27 @@ int main() {
             clearTerminal();
             switch (index) {
                 case 0:
-                    printHeader(VERSION);
-                    printProjectInfo(VERSION);
+                    printHeader();
+                    printProjectInfo(user.proteinaPorcentaje, user.carbsPorcentaje, user.grasaPorcentaje);
                     break;
                 case 1:
-                    printHeader(VERSION);
-                    editUserData(user, userDataFile);
+                    printHeader();
+                    manageEditUserData(user, userDataFile);
                     break;
                 case 2:
-                    printHeader(VERSION);
+                    printHeader();
                     manageObject(objDataFile);
                     break;
                 case 3:
-                    printHeader(VERSION);
+                    printHeader();
                     consumeObjects(objDataFile, userDataFile, user);
                     break;
                 case 4:
-                    printHeader(VERSION);
+                    printHeader();
                     printRemaining(user.remainingCal, user.remainingProtein, user.remainingFat, user.remainingCarb);
                     break;
                 case 5:
-                    printHeader(VERSION);
+                    printHeader();
 
                     char eleccion;
                     cout << "Esta seguro de que quiere reiniciar el marcador diario? (Y/N) \n";
@@ -138,7 +155,7 @@ int main() {
                     cin.ignore(MAX_INTEGER, '\n');
 
                     clearTerminal();
-                    printHeader(VERSION);
+                    printHeader();
 
                     if(eleccion == 'Y' || eleccion == 'y'){
                         resetDailyMarker(userDataFile, user);
@@ -146,12 +163,12 @@ int main() {
                     }
                     break;
                 case 6:
-                    printHeader(VERSION);
+                    printHeader();
                     cout << "Saliendo del programa. Hasta luego!";
                     this_thread::sleep_for(chrono::milliseconds(1500)); // Un segundo y medio
                     break;
                 default:
-                    printHeader(VERSION);
+                    printHeader();
                     cout << "Opcion invalida, intente de nuevo. \n\n";
             }
         } while(index != 6);

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-const string VERSION = "v1.1.0";
+const string VERSION = "v1.1.1";
 const int MAX_INTEGER = 2147483647;
 
 /* ================= Prototipos de funciones ================= */
@@ -35,6 +35,9 @@ struct Usuario {
     double peso;
     int edad;
     int formula;
+    double proteinaPorcentaje;
+    double carbsPorcentaje;
+    double grasaPorcentaje;
     double maintenanceCal;
     double remainingCal;
     double targetProtein;
@@ -92,6 +95,21 @@ bool saveUserData(const string &filename, Usuario &user);
  * @param filename Archivo donde se guardan los datos.
  */
 void editUserData(Usuario &user, const string &filename);
+
+/**
+ * @brief PENDIENTE, HABRÁ QUE DOCUMENTAR OTRA VEZ BIEN TODOS LOS RECIENTES NUEVOS CAMBIOS...
+ *
+ * @param user Estructura Usuario que contiene los datos del usuario.
+ */
+void recalculateUserData (Usuario &user);
+
+/**
+ * @brief  PENDIENTE, HABRÁ QUE DOCUMENTAR OTRA VEZ BIEN TODOS LOS RECIENTES NUEVOS CAMBIOS...
+ *
+ * @param user Estructura Usuario que contiene los datos del usuario.
+ * @param filename Archivo donde se guardan los datos.
+ */
+void manageEditUserData(Usuario &user, const string &filename);
 
  /**
  * @brief Permite seleccionar la fórmula para el cálculo de calorías.
@@ -202,7 +220,7 @@ void printRemaining(double &remainingCal,
  * @param targetFat Referencia donde se guarda la grasa objetivo.
  * @param targetCarb Referencia donde se guarda el carbohidrato objetivo.
  */
-void calculateGoalMacros(double maintenanceCal, double &targetProtein, double &targetFat, double &targetCarb);
+void calculateGoalMacros(double &proteinaPorcentaje, double &carbsProcentaje, double &grasaPorcentaje, double maintenanceCal, double &targetProtein, double &targetFat, double &targetCarb);
 
 /**
  * @brief Solicita un número al usuario y valida la entrada.
@@ -233,7 +251,7 @@ void printObjects(const vector<Objeto> &objetos);
  *
  * @param VERSION String constante que determina la versión actual.
  */
-void printHeader(const string &VERSION);
+void printHeader();
 
 /**
  * @brief Limpia la pantalla de la terminal con código ANSI.
@@ -243,7 +261,7 @@ void clearTerminal();
 /**
  * @brief Muestra datos informativos del proyecto.
  */
-void printProjectInfo(const string &VERSION);
+void printProjectInfo(double &proteinaPorcentaje, double &carbsProcentaje, double &grasaPorcentaje);
 
 /**
  * @brief Muestra un menú para manejar los objetos nutricionales: crear, eliminar.
