@@ -7,7 +7,7 @@
 
 using namespace std;
 
-const string VERSION = "v1.1.1";
+const string VERSION = "v1.2.0";
 const int MAX_INTEGER = 2147483647;
 
 /* ================= Prototipos de funciones ================= */
